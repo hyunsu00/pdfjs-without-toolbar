@@ -29,8 +29,32 @@ See https://github.com/adobe-type-tools/cmap-resources
 
 
     <link rel="stylesheet" href="viewer.css">
+    <!-- 코드 추가 시작 -->
     <link rel="stylesheet" href="viewer.without.toolbar.css" />
-
+    <style>
+      body {
+        overflow: hidden;
+      }
+      select{margin-right:3px; font-weight: bold; color: #2c4f91; height: 100%;}
+      .pdf-toolbar {
+        text-align: center;
+        background-color: #b95555;
+      }
+    </style>
+    <script type="text/javascript">
+      setTimeout(function() {
+          window.scrollTo(0, 0);
+          document.getElementById("zoom").addEventListener("change", (e) => {
+          PDFViewerApplication.eventBus.dispatch("scalechanged", {
+              source: PDFViewerApplication.scaleSelect,
+              value: e.target.value,
+            });
+          });
+        }, 
+        3000
+      ); // 3000ms(3초)가 경과하면 이 함수가 실행됩니다.
+    </script>
+    <!-- 코드 추가 끝 -->
 <!-- This snippet is used in production (included from viewer.html) -->
 <link rel="resource" type="application/l10n" href="locale/locale.properties">
 <script src="../build/pdf.js"></script>
@@ -41,6 +65,24 @@ See https://github.com/adobe-type-tools/cmap-resources
   </head>
 
   <body tabindex="1">
+    <div class="pdf-toolbar">
+      <div id="zoom_controls">
+				<select class="pdf-toolbar-select" id="zoom" title ="확대/축소">
+					<option value="page-height">쪽 맞춤</option>
+					<option value="page-width">폭 맞춤</option>
+					<option value="0.50">50%</option>
+					<option value="0.75">75%</option>
+					<option value="1.00">100%</option>
+					<option value="1.25">125%</option>
+					<option value="1.50">150%</option>
+					<option value="2.00">200%</option>
+					<option value="3.00">300%</option>
+				</select>
+        <button class="pdf-toolbar-button" id="zoom_in">+</button>
+        <button class="pdf-toolbar-button" id="zoom_out">-</button>
+				<button class="pdf-toolbar-button" id="print">인쇄</button>
+      </div>
+    </div>
     <div id="outerContainer">
 
       <div id="sidebarContainer">
