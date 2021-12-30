@@ -44,11 +44,16 @@ See https://github.com/adobe-type-tools/cmap-resources
     <script type="text/javascript">
       setTimeout(function() {
           window.scrollTo(0, 0);
+
           document.getElementById("zoom").addEventListener("change", (e) => {
           PDFViewerApplication.eventBus.dispatch("scalechanged", {
               source: PDFViewerApplication.scaleSelect,
               value: e.target.value,
             });
+          });
+
+          document.getElementById("print").addEventListener("click", (e) => {
+            PDFViewerApplication.triggerPrinting();
           });
         }, 
         3000

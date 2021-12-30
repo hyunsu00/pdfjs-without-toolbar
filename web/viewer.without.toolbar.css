@@ -5,3 +5,9 @@
 #viewerContainer {
   top: 0;
 }
+
+@media print {
+  .pdf-toolbar {
+    display: none;
+  }
+}
