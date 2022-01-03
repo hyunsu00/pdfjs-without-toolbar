@@ -1,24 +1,26 @@
 .wrap {
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.toolbar {
+/* .toolbar {
   display: none !important;
+} */
+
+/* #sidebarContainer {
+  position:absolute;
+  top: 8px;
 }
 
 #viewerContainer {
   top: 0;
-}
+} */
 
 @media print {
-  /* .pdf-toolbar {
+  .pdf-toolbar {
     display: none;
-  } */
-  #wrap {
-    display: none !important;
   }
 }

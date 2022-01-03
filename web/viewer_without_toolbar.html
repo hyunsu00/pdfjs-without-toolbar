@@ -22,25 +22,25 @@ See https://github.com/adobe-type-tools/cmap-resources
 -->
 <html dir="ltr" mozdisallowselectionprint>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="google" content="notranslate">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="google" content="notranslate" />
     <title>PDF.js viewer</title>
-    <link rel="stylesheet" href="viewer.css">
-<!-- This snippet is used in production (included from viewer.html) -->
-<link rel="resource" type="application/l10n" href="locale/locale.properties">
-<script src="../build/pdf.js"></script>
 
+    <link rel="stylesheet" href="viewer.css" />
+    <link rel="stylesheet" href="viewer.without.toolbar.css" />
+    <!-- This snippet is used in production (included from viewer.html) -->
+    <link rel="resource" type="application/l10n" href="locale/locale.properties" />
+    <script src="../build/pdf.js"></script>
 
-  <script src="viewer.js"></script>
-
+    <script src="viewer.js"></script>
   </head>
 
   <body tabindex="1">
     <div class="wrap" id="wrap">
-        <div class="pdf-toolbar">
+      <div class="pdf-toolbar">
         <div id="zoom_controls">
-          <select class="pdf-toolbar-select" id="zoom" title ="확대/축소">
+          <select class="pdf-toolbar-select" id="zoom" title="확대/축소">
             <option value="page-height">쪽 맞춤</option>
             <option value="page-width">폭 맞춤</option>
             <option value="0.50">50%</option>
@@ -53,12 +53,10 @@ See https://github.com/adobe-type-tools/cmap-resources
           </select>
           <button class="pdf-toolbar-button" id="zoom_in">+</button>
           <button class="pdf-toolbar-button" id="zoom_out">-</button>
-          <button class="pdf-toolbar-button" id="print">인쇄</button>
-          <button calss="pdf-toolbar-button" id="show_toolbar">툴바</button>
+          <button class="pdf-toolbar-button" id="pdf_print">인쇄</button>
         </div>
       </div>
       <div id="outerContainer">
-
         <div id="sidebarContainer">
           <div id="toolbarSidebar">
             <div id="toolbarSidebarLeft">
@@ -89,22 +87,19 @@ See https://github.com/adobe-type-tools/cmap-resources
             </div>
           </div>
           <div id="sidebarContent">
-            <div id="thumbnailView">
-            </div>
-            <div id="outlineView" class="hidden">
-            </div>
-            <div id="attachmentsView" class="hidden">
-            </div>
-            <div id="layersView" class="hidden">
-            </div>
+            <div id="thumbnailView"></div>
+            <div id="outlineView" class="hidden"></div>
+            <div id="attachmentsView" class="hidden"></div>
+            <div id="layersView" class="hidden"></div>
           </div>
           <div id="sidebarResizer"></div>
-        </div>  <!-- sidebarContainer -->
+        </div>
+        <!-- sidebarContainer -->
 
         <div id="mainContainer">
           <div class="findbar hidden doorHanger" id="findbar">
             <div id="findbarInputContainer">
-              <input id="findInput" class="toolbarField" title="Find" placeholder="Find in document…" tabindex="91" data-l10n-id="find_input">
+              <input id="findInput" class="toolbarField" title="Find" placeholder="Find in document…" tabindex="91" data-l10n-id="find_input" />
               <div class="splitToolbarButton">
                 <button id="findPrevious" class="toolbarButton findPrevious" title="Find the previous occurrence of the phrase" tabindex="92" data-l10n-id="find_previous">
                   <span data-l10n-id="find_previous_label">Previous</span>
@@ -117,13 +112,13 @@ See https://github.com/adobe-type-tools/cmap-resources
             </div>
 
             <div id="findbarOptionsOneContainer">
-              <input type="checkbox" id="findHighlightAll" class="toolbarField" tabindex="94">
+              <input type="checkbox" id="findHighlightAll" class="toolbarField" tabindex="94" />
               <label for="findHighlightAll" class="toolbarLabel" data-l10n-id="find_highlight">Highlight all</label>
-              <input type="checkbox" id="findMatchCase" class="toolbarField" tabindex="95">
+              <input type="checkbox" id="findMatchCase" class="toolbarField" tabindex="95" />
               <label for="findMatchCase" class="toolbarLabel" data-l10n-id="find_match_case_label">Match case</label>
             </div>
             <div id="findbarOptionsTwoContainer">
-              <input type="checkbox" id="findEntireWord" class="toolbarField" tabindex="96">
+              <input type="checkbox" id="findEntireWord" class="toolbarField" tabindex="96" />
               <label for="findEntireWord" class="toolbarLabel" data-l10n-id="find_entire_word_label">Whole words</label>
               <span id="findResultsCount" class="toolbarLabel hidden"></span>
             </div>
@@ -131,11 +126,18 @@ See https://github.com/adobe-type-tools/cmap-resources
             <div id="findbarMessageContainer">
               <span id="findMsg" class="toolbarLabel"></span>
             </div>
-          </div>  <!-- findbar -->
+          </div>
+          <!-- findbar -->
 
           <div id="secondaryToolbar" class="secondaryToolbar hidden doorHangerRight">
             <div id="secondaryToolbarButtonContainer">
-              <button id="secondaryPresentationMode" class="secondaryToolbarButton presentationMode visibleLargeView" title="Switch to Presentation Mode" tabindex="51" data-l10n-id="presentation_mode">
+              <button
+                id="secondaryPresentationMode"
+                class="secondaryToolbarButton presentationMode visibleLargeView"
+                title="Switch to Presentation Mode"
+                tabindex="51"
+                data-l10n-id="presentation_mode"
+              >
                 <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
               </button>
 
@@ -215,7 +217,8 @@ See https://github.com/adobe-type-tools/cmap-resources
                 <span data-l10n-id="document_properties_label">Document Properties…</span>
               </button>
             </div>
-          </div>  <!-- secondaryToolbar -->
+          </div>
+          <!-- secondaryToolbar -->
 
           <div class="toolbar">
             <div id="toolbarContainer">
@@ -237,7 +240,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                       <span data-l10n-id="next_label">Next</span>
                     </button>
                   </div>
-                  <input type="number" id="pageNumber" class="toolbarField pageNumber" title="Page" value="1" size="4" min="1" tabindex="15" data-l10n-id="page" autocomplete="off">
+                  <input type="number" id="pageNumber" class="toolbarField pageNumber" title="Page" value="1" size="4" min="1" tabindex="15" data-l10n-id="page" autocomplete="off" />
                   <span id="numPages" class="toolbarLabel"></span>
                 </div>
                 <div id="toolbarViewerRight">
@@ -297,8 +300,7 @@ See https://github.com/adobe-type-tools/cmap-resources
               </div>
               <div id="loadingBar">
                 <div class="progress">
-                  <div class="glimmer">
-                  </div>
+                  <div class="glimmer"></div>
                 </div>
               </div>
             </div>
@@ -308,25 +310,20 @@ See https://github.com/adobe-type-tools/cmap-resources
             <div id="viewer" class="pdfViewer"></div>
           </div>
 
-          <div id="errorWrapper" hidden='true'>
+          <div id="errorWrapper" hidden="true">
             <div id="errorMessageLeft">
               <span id="errorMessage"></span>
-              <button id="errorShowMore" data-l10n-id="error_more_info">
-                More Information
-              </button>
-              <button id="errorShowLess" data-l10n-id="error_less_info" hidden='true'>
-                Less Information
-              </button>
+              <button id="errorShowMore" data-l10n-id="error_more_info">More Information</button>
+              <button id="errorShowLess" data-l10n-id="error_less_info" hidden="true">Less Information</button>
             </div>
             <div id="errorMessageRight">
-              <button id="errorClose" data-l10n-id="error_close">
-                Close
-              </button>
+              <button id="errorClose" data-l10n-id="error_close">Close</button>
             </div>
             <div class="clearBoth"></div>
-            <textarea id="errorMoreInfo" hidden='true' readonly="readonly"></textarea>
+            <textarea id="errorMoreInfo" hidden="true" readonly="readonly"></textarea>
           </div>
-        </div> <!-- mainContainer -->
+        </div>
+        <!-- mainContainer -->
 
         <div id="overlayContainer" class="hidden">
           <div id="passwordOverlay" class="container hidden">
@@ -335,7 +332,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                 <p id="passwordText" data-l10n-id="password_label">Enter the password to open this PDF file:</p>
               </div>
               <div class="row">
-                <input type="password" id="password" class="toolbarField">
+                <input type="password" id="password" class="toolbarField" />
               </div>
               <div class="buttonRow">
                 <button id="passwordCancel" class="overlayButton"><span data-l10n-id="password_cancel">Cancel</span></button>
@@ -346,49 +343,63 @@ See https://github.com/adobe-type-tools/cmap-resources
           <div id="documentPropertiesOverlay" class="container hidden">
             <div class="dialog">
               <div class="row">
-                <span data-l10n-id="document_properties_file_name">File name:</span> <p id="fileNameField">-</p>
+                <span data-l10n-id="document_properties_file_name">File name:</span>
+                <p id="fileNameField">-</p>
               </div>
               <div class="row">
-                <span data-l10n-id="document_properties_file_size">File size:</span> <p id="fileSizeField">-</p>
-              </div>
-              <div class="separator"></div>
-              <div class="row">
-                <span data-l10n-id="document_properties_title">Title:</span> <p id="titleField">-</p>
-              </div>
-              <div class="row">
-                <span data-l10n-id="document_properties_author">Author:</span> <p id="authorField">-</p>
-              </div>
-              <div class="row">
-                <span data-l10n-id="document_properties_subject">Subject:</span> <p id="subjectField">-</p>
-              </div>
-              <div class="row">
-                <span data-l10n-id="document_properties_keywords">Keywords:</span> <p id="keywordsField">-</p>
-              </div>
-              <div class="row">
-                <span data-l10n-id="document_properties_creation_date">Creation Date:</span> <p id="creationDateField">-</p>
-              </div>
-              <div class="row">
-                <span data-l10n-id="document_properties_modification_date">Modification Date:</span> <p id="modificationDateField">-</p>
-              </div>
-              <div class="row">
-                <span data-l10n-id="document_properties_creator">Creator:</span> <p id="creatorField">-</p>
+                <span data-l10n-id="document_properties_file_size">File size:</span>
+                <p id="fileSizeField">-</p>
               </div>
               <div class="separator"></div>
               <div class="row">
-                <span data-l10n-id="document_properties_producer">PDF Producer:</span> <p id="producerField">-</p>
+                <span data-l10n-id="document_properties_title">Title:</span>
+                <p id="titleField">-</p>
               </div>
               <div class="row">
-                <span data-l10n-id="document_properties_version">PDF Version:</span> <p id="versionField">-</p>
+                <span data-l10n-id="document_properties_author">Author:</span>
+                <p id="authorField">-</p>
               </div>
               <div class="row">
-                <span data-l10n-id="document_properties_page_count">Page Count:</span> <p id="pageCountField">-</p>
+                <span data-l10n-id="document_properties_subject">Subject:</span>
+                <p id="subjectField">-</p>
               </div>
               <div class="row">
-                <span data-l10n-id="document_properties_page_size">Page Size:</span> <p id="pageSizeField">-</p>
+                <span data-l10n-id="document_properties_keywords">Keywords:</span>
+                <p id="keywordsField">-</p>
+              </div>
+              <div class="row">
+                <span data-l10n-id="document_properties_creation_date">Creation Date:</span>
+                <p id="creationDateField">-</p>
+              </div>
+              <div class="row">
+                <span data-l10n-id="document_properties_modification_date">Modification Date:</span>
+                <p id="modificationDateField">-</p>
+              </div>
+              <div class="row">
+                <span data-l10n-id="document_properties_creator">Creator:</span>
+                <p id="creatorField">-</p>
               </div>
               <div class="separator"></div>
               <div class="row">
-                <span data-l10n-id="document_properties_linearized">Fast Web View:</span> <p id="linearizedField">-</p>
+                <span data-l10n-id="document_properties_producer">PDF Producer:</span>
+                <p id="producerField">-</p>
+              </div>
+              <div class="row">
+                <span data-l10n-id="document_properties_version">PDF Version:</span>
+                <p id="versionField">-</p>
+              </div>
+              <div class="row">
+                <span data-l10n-id="document_properties_page_count">Page Count:</span>
+                <p id="pageCountField">-</p>
+              </div>
+              <div class="row">
+                <span data-l10n-id="document_properties_page_size">Page Size:</span>
+                <p id="pageSizeField">-</p>
+              </div>
+              <div class="separator"></div>
+              <div class="row">
+                <span data-l10n-id="document_properties_linearized">Fast Web View:</span>
+                <p id="linearizedField">-</p>
               </div>
               <div class="buttonRow">
                 <button id="documentPropertiesClose" class="overlayButton"><span data-l10n-id="document_properties_close">Close</span></button>
@@ -409,25 +420,30 @@ See https://github.com/adobe-type-tools/cmap-resources
               </div>
             </div>
           </div>
-        </div>  <!-- overlayContainer -->
-
-      </div> <!-- outerContainer -->
+        </div>
+        <!-- overlayContainer -->
+      </div>
+      <!-- outerContainer -->
+      <div id="printContainer"></div>
     </div>
-    <div id="printContainer"></div>
     <!-- 코드 추가 시작 -->
-    <link rel="stylesheet" href="viewer.without.toolbar.css" />
     <style>
       body {
         /* overflow: hidden; */
       }
-      select{margin-right:3px; font-weight: bold; color: #2c4f91; height: 100%;}
+      select {
+        margin-right: 3px;
+        font-weight: bold;
+        color: #2c4f91;
+        height: 100%;
+      }
       .pdf-toolbar {
         text-align: center;
         background-color: #b95555;
       }
     </style>
     <script type="text/javascript">
-      window.onload = function(){
+      window.onload = function () {
         var zoomRatio = "page-width";
         var zoom = document.getElementById("zoom");
         for (var i = 0; i < zoom.length; i++) {
@@ -436,34 +452,32 @@ See https://github.com/adobe-type-tools/cmap-resources
             break;
           }
         }
-      }
-
+      };
       // zoom
       document.getElementById("zoom").addEventListener("change", (e) => {
         console.log("zoom");
-        console.log(`e.target.value = ${ e.target.value }`);
+        console.log(`e.target.value = ${e.target.value}`);
 
         PDFViewerApplication.eventBus.dispatch("scalechanged", {
-            source: PDFViewerApplication.scaleSelect,
-            value: e.target.value,
+          source: PDFViewerApplication.scaleSelect,
+          value: e.target.value,
         });
       });
-
       // zoom_in
       document.getElementById("zoom_in").addEventListener("click", (e) => {
         console.log("zoom_in");
       });
-
       // zoom_out
       document.getElementById("zoom_out").addEventListener("click", (e) => {
         console.log("zoom_out");
       });
-
       // 인쇄
-      document.getElementById("print").addEventListener("click", (e) => {
+      document.getElementById("pdf_print").addEventListener("click", (e) => {
         PDFViewerApplication.triggerPrinting();
+        // PDFViewerApplication.eventBus.dispatch("print", {
+        //     source: PDFViewerApplication
+        // });
       });
-
       // resize
       window.addEventListener("resize", (e) => {
         console.log("resize");
