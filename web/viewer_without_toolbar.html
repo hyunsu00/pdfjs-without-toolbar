@@ -40,6 +40,10 @@ See https://github.com/adobe-type-tools/cmap-resources
     <div class="wrap" id="wrap">
       <div class="pdf-toolbar">
         <div id="zoom_controls">
+          <button class="pdf-toolbar-button" id="d_download">다운로드</button>
+          <button class="pdf-toolbar-button" id="d_open">열기...</button>
+          <button class="pdf-toolbar-button" id="d_print">인쇄</button>
+          <button class="pdf-toolbar-button" id="d_info">문서정보...</button>  
           <select class="pdf-toolbar-select" id="zoom" title="확대/축소">
             <option value="page-height">쪽 맞춤</option>
             <option value="page-width">폭 맞춤</option>
@@ -53,7 +57,6 @@ See https://github.com/adobe-type-tools/cmap-resources
           </select>
           <button class="pdf-toolbar-button" id="zoom_in">+</button>
           <button class="pdf-toolbar-button" id="zoom_out">-</button>
-          <button class="pdf-toolbar-button" id="pdf_print">인쇄</button>
         </div>
       </div>
       <div id="outerContainer">
@@ -431,12 +434,6 @@ See https://github.com/adobe-type-tools/cmap-resources
       body {
         /* overflow: hidden; */
       }
-      select {
-        margin-right: 3px;
-        font-weight: bold;
-        color: #2c4f91;
-        height: 100%;
-      }
       .pdf-toolbar {
         text-align: center;
         background-color: #b95555;
@@ -453,6 +450,34 @@ See https://github.com/adobe-type-tools/cmap-resources
           }
         }
       };
+
+      // 다운로드
+      document.getElementById("d_download").addEventListener("click", (e) => {
+        console.log("d_download");
+        PDFViewerApplication.toolbar.eventBus.dispatch("download", {
+					source: this
+				});
+      });
+      // 열기...
+      document.getElementById("d_open").addEventListener("click", (e) => {
+        console.log("d_open");
+        PDFViewerApplication.toolbar.eventBus.dispatch("openfile", {
+					source: this
+				});
+      });
+      // 인쇄
+      document.getElementById("d_print").addEventListener("click", (e) => {
+        console.log("d_print");
+      });
+      // 문서정보...
+      document.getElementById("d_info").addEventListener("click", (e) => {
+        console.log("d_info");
+        PDFViewerApplication.secondaryToolbar.eventBus.dispatch("documentproperties", {
+					source: PDFViewerApplication.secondaryToolbar
+				});
+        PDFViewerApplication.secondaryToolbar.close();
+      });
+
       // zoom
       document.getElementById("zoom").addEventListener("change", (e) => {
         console.log("zoom");
@@ -471,13 +496,7 @@ See https://github.com/adobe-type-tools/cmap-resources
       document.getElementById("zoom_out").addEventListener("click", (e) => {
         console.log("zoom_out");
       });
-      // 인쇄
-      document.getElementById("pdf_print").addEventListener("click", (e) => {
-        PDFViewerApplication.triggerPrinting();
-        // PDFViewerApplication.eventBus.dispatch("print", {
-        //     source: PDFViewerApplication
-        // });
-      });
+
       // resize
       window.addEventListener("resize", (e) => {
         console.log("resize");
